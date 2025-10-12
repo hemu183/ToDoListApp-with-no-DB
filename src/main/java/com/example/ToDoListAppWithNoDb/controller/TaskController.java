@@ -1,10 +1,9 @@
 package com.example.ToDoListAppWithNoDb.controller;
 
-import com.example.ToDoListAppWithNoDb.model.Task;
+import com.example.ToDoListAppWithNoDb.model.TaskObj;
 import com.example.ToDoListAppWithNoDb.service.TaskServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,10 +13,24 @@ public class TaskController {
     @Autowired
     TaskServiceImpl taskService;
 
-    //to get all tasks
+    // fetches all tasks
     @GetMapping("Task")
-    public List<Task> getTask(){
-        return taskService.getTask();
+    public List<TaskObj> getAllTask(){
+        return taskService.getAllTask();
+    }
+
+    // fetches single task
+    @GetMapping("Tasks/{taskId}")
+    public TaskObj getTask(@PathVariable int taskId){
+        return taskService.getTask(taskId);
+    }
+
+    //adding a task
+    @PostMapping("Task")
+    public String addTask(@RequestBody TaskObj taskObj){
+        taskService.addTask(taskObj);
+        //return taskService.getTask(taskObj.getId());
+        return "Added Task";
     }
 }
 

@@ -1,6 +1,6 @@
 package com.example.ToDoListAppWithNoDb.service;
 
-import com.example.ToDoListAppWithNoDb.model.Task;
+import com.example.ToDoListAppWithNoDb.model.TaskObj;
 import com.example.ToDoListAppWithNoDb.repository.Repo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +13,17 @@ public class TaskServiceImpl  {
     Repo repo;
 
 
-    public List<Task> getTask() {
-        return repo.getTask();
+    public List<TaskObj> getAllTask() {
+        return repo.getAllTask();
     }
 
+
+    public TaskObj getTask(int taskId) {
+        return repo.getTask(taskId);
+
+    }
+
+    public void addTask(TaskObj taskObj) {
+        repo.addTask(taskObj);
+    }
 }
