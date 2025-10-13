@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public class Repo {
 
-     List<TaskObj> Tasks = new ArrayList<>(Arrays.asList(
+    List<TaskObj> Tasks = new ArrayList<>(Arrays.asList(
 
             new TaskObj(1, "Buy groceries", "Milk, Eggs, Bread", "PENDING", new Date()),
 
@@ -41,6 +41,27 @@ public class Repo {
         }
         return null;
     }
+
+    public void updateTask(TaskObj taskobj) {
+        for (TaskObj task : Tasks) {
+            if (task.getId() == taskobj.getId()) {
+                task.setId(taskobj.getId());
+                task.setTitle(taskobj.getTitle());
+                task.setDescription(taskobj.getDescription());
+                task.setStatus(taskobj.getStatus());
+                task.setCreatedAt(taskobj.getCreatedAt());
+
+
+            }
+        }
+    }
+
+    public void deleteTask(TaskObj taskObj) {
+        for (TaskObj task : Tasks) {
+            if(task.getId() == taskObj.getId()){
+                Tasks.remove(taskObj);
+            }
+        }
+    }
 }
-    
 

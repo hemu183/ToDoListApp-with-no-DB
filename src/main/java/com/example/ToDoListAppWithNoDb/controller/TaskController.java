@@ -32,6 +32,20 @@ public class TaskController {
         //return taskService.getTask(taskObj.getId());
         return "Added Task";
     }
+
+    //Update a task
+    @PutMapping("Task")
+    public String updateTask(@RequestBody TaskObj taskobj){
+        taskService.updateTask(taskobj);
+        return "updated success";
+    }
+
+    //Delete a Task
+    @DeleteMapping("Task")
+    public String deleteTask(@RequestBody TaskObj taskObj) {
+        taskService.deleteTask(taskObj);
+        return "Delete success";
+    }
 }
 
 

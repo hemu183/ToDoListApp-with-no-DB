@@ -26,4 +26,12 @@ public class TaskServiceImpl  {
     public void addTask(TaskObj taskObj) {
         repo.addTask(taskObj);
     }
+
+    public void updateTask(TaskObj taskobj) {
+        repo.updateTask(taskobj);
+    }
+
+    public void deleteTask(TaskObj taskObj) {
+        repo.deleteTask(taskObj);
+    }
 }
