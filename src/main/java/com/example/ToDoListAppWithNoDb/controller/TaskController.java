@@ -41,9 +41,9 @@ public class TaskController {
     }
 
     //Delete a Task
-    @DeleteMapping("Task")
-    public String deleteTask(@RequestBody TaskObj taskObj) {
-        taskService.deleteTask(taskObj);
+    @DeleteMapping("Task/{id}")
+    public String deleteTask(@PathVariable int id) {
+        taskService.deleteTask(id);
         return "Delete success";
     }
 }

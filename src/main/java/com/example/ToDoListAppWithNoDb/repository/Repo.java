@@ -56,12 +56,11 @@ public class Repo {
         }
     }
 
-    public void deleteTask(TaskObj taskObj) {
+    public void deleteTask(int id) {
         for (TaskObj task : Tasks) {
-            if(task.getId() == taskObj.getId()){
-                Tasks.remove(taskObj);
+            Tasks.removeIf(jobPost -> jobPost.getId() == id);
             }
         }
     }
-}
+
 

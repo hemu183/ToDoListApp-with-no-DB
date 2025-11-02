@@ -31,7 +31,7 @@ public class TaskServiceImpl  {
         repo.updateTask(taskobj);
     }
 
-    public void deleteTask(TaskObj taskObj) {
-        repo.deleteTask(taskObj);
+    public void deleteTask(int id) {
+        repo.deleteTask(id);
     }
 }
